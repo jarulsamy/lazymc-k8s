@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lazymc-k8s
+  namespace: minecraft
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lazymc-k8s
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: lazymc-k8s
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: lazymc-k8s
+          image: localhost:5001/lazymc-k8s
+          env:
+            - name: UID
+              value: "1000"
+            - name: GID
+              value: "1000"
+            - name: LAZYMC_K8S_DEPLOYMENT_NAME
+              value: "minecraft"
+          volumeMounts:
+            - mountPath: /config
+              name: config
+      restartPolicy: Always
+      volumes:
+        - name: config
+          hostPath:
+            path: /data/lazymc

@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+  namespace: minecraft
+  creationTimestamp: null
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minecraft
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: minecraft
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                    - amd64
+      dnsPolicy: "ClusterFirst"
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: minecraft
+          image: itzg/minecraft-server:latest
+          env:
+            - name: UID
+              value: "1000"
+            - name: GID
+              value: "1000"
+            - name: TYPE
+              value: PAPER
+            - name: PAPER_DOWNLOAD_URL
+              # value: https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/408/downloads/paper-1.20.4-408.jar
+              value: https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/76/downloads/paper-1.21.1-76.jar
+            - name: DIFFICULTY
+              value: normal
+            - name: EULA
+              value: "TRUE"
+            - name: ENABLE_RCON
+              value: "TRUE"
+            - name: ENABLE_ROLLING_LOGS
+              value: "TRUE"
+            - name: REPLACE_ENV_VARIABLES
+              value: "TRUE"
+            - name: USE_AIKAR_FLAGS
+              value: "TRUE"
+            - name: SYNC_CHUNK_WRITES
+              value: "TRUE"
+            - name: INIT_MEMORY
+              value: 4G
+            - name: MAX_MEMORY
+              value: 32G
+            - name: TZ
+              value: America/Denver
+            # Auto-Pause specific options
+            - name: JVM_DD_OPTS
+              value: "disable.watchdog:true"
+            - name: ENABLE_AUTOPAUSE
+              value: "TRUE"
+            - name: DEBUG_AUTOPAUSE
+              value: "FALSE"
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - "/bin/sh"
+                  - "-c"
+                  - "rcon-cli save-all"
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      restartPolicy: Always
+      volumes:
+        - name: data
+          hostPath:
+            path: /data/mc

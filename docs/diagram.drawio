@@ -1,0 +1,61 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0" version="24.8.0">
+  <diagram name="Page-1" id="lFoYwKvnRnPU5nGrqACu">
+    <mxGraphModel dx="1680" dy="448" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="1NwQwc_L65FNAgXsZ750-5" value="&lt;div&gt;K8s Cluster&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="10" width="600" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-4" value="&lt;div&gt;Minecraft Server Namespace&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="150" y="30" width="400" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-6" value="&lt;div&gt;Generic Server Deployment&lt;/div&gt;&lt;div&gt;(Any image)&lt;br&gt;Dynamically Scaled&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillStyle=auto;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="70" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;dashed=1;" edge="1" parent="1" source="1NwQwc_L65FNAgXsZ750-7" target="1NwQwc_L65FNAgXsZ750-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-9" value="Cluster-local DNS" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1NwQwc_L65FNAgXsZ750-8">
+          <mxGeometry x="0.1048" relative="1" as="geometry">
+            <mxPoint x="30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="1NwQwc_L65FNAgXsZ750-7" target="1NwQwc_L65FNAgXsZ750-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="1NwQwc_L65FNAgXsZ750-7" target="1NwQwc_L65FNAgXsZ750-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-7" value="LazyMC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="220" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-11" value="Control Plane" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry y="125" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="1NwQwc_L65FNAgXsZ750-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="660" y="174.8571428571429" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-14" value="LoadBalancer &lt;br&gt;(or other out-of-cluster accessible svc)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="145" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-17" value="Player" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="660" y="145" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="1NwQwc_L65FNAgXsZ750-22" target="1NwQwc_L65FNAgXsZ750-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-25" value="API Access via &lt;br&gt;Service Account" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1NwQwc_L65FNAgXsZ750-24">
+          <mxGeometry x="-0.0348" y="-1" relative="1" as="geometry">
+            <mxPoint y="21" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="1NwQwc_L65FNAgXsZ750-22" value="lazymc-k8s&lt;br&gt;Python&lt;br&gt;Script" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="220" width="80" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

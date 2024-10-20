@@ -1,0 +1,31 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: minecraft
+  namespace: minecraft
+spec:
+  type: ClusterIP
+  selector:
+    app: minecraft
+  ports:
+    - name: mc-tcp
+      port: 25566
+      targetPort: 25566
+      protocol: TCP
+    - name: mc-udp
+      port: 25566
+      targetPort: 25566
+      protocol: UDP
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: lazymc-k8s
+  namespace: minecraft
+spec:
+  type: LoadBalancer
+  selector:
+    app: lazymc-k8s
+  ports:
+    - port: 25565
