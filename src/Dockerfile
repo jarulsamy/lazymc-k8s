@@ -15,7 +15,7 @@ VOLUME ["/config"]
 WORKDIR /app
 COPY --from=build /lazymc-src/target/release/lazymc /app/lazymc
 
-COPY lazymc.toml requirements.txt /app
+COPY requirements.txt /app
 RUN pip3 install -r requirements.txt
 
 COPY main.py .
