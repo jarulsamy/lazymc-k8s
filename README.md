@@ -171,16 +171,20 @@ spec:
             - mountPath: /config
               name: config
       restartPolicy: Always
+
+      ### Psst!!!
+      # You probably need to adjust this!!
       volumes:
         - name: config
           hostPath:
             path: /data/lazymc
 ```
 
-This uses the de-facto itzg/minecraft-server container with a PaperMC server,
-though any image should work fine here. **Note:** The initial replicas must be 0.
-
-Make sure you adjust your `server.properties` file to listen on 25566 instead of 25565.
+This uses the de-facto
+[itzg/docker-minecraft-server](https://github.com/itzg/docker-minecraft-server)
+container with a PaperMC server, though any image should work fine here.
+**Note: The initial replicas must be 0.** Make sure you adjust your
+`server.properties` file to listen on 25566 instead of 25565.
 
 ```yaml
 # server-deployment.yml
@@ -250,6 +254,9 @@ spec:
             - mountPath: /data
               name: data
       restartPolicy: Always
+
+      ### Psst!!!
+      # You probably need to adjust this!!
       volumes:
         - name: data
           hostPath:
