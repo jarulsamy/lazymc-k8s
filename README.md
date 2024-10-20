@@ -15,7 +15,7 @@ dynamically spinning up Minecraft servers as needed.
 
 # How it Works
 
-<img src="./docs/diagram.drawio.svg" alt="K8s digram" width="200"/>
+<img src="./docs/diagram.drawio.svg" alt="K8s digram"/>
 
 - lazymc spawns a custom Python script which automatically scales up a server
   deployment.
