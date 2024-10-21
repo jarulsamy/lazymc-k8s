@@ -30,6 +30,7 @@ from threading import Event
 
 import kubernetes as k8s
 
+__version__ = "0.0.1"
 
 def get_config():
     """Get runtime config from env vars."""
